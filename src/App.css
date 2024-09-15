@@ -1,0 +1,29 @@
+#main {
+    margin: 8px;
+}
+
+.navBar {
+    background-color: burlywood;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+}
+
+.navBar li {
+    display: inline;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navBar li a {
+    color: rgb(31, 30, 30);
+}
+
+#add-new-car-block {
+    font-weight: bold;
+}
+
+#add-new-car-block a {
+    color: darkslategray;
+}

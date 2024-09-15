@@ -19,7 +19,7 @@ const CarsList = () => {
     <div className='Cars'>
         <div>
           <h1>All Cars</h1>
-          <div>
+          <div id='add-new-car-block'>
             <Link to={`/cars/new`}>Add new</Link>
           </div>
           <div id="cars-list">

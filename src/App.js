@@ -12,12 +12,14 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <Routes>
-          <Route path="/cars" element={<CarsList />} />
-          <Route path="/cars/:id" element={<CarDetails />} />
-          <Route path="/cars/:id/edit" element={<CarForm editing={true} />} />
-          <Route path="/cars/new" element={<CarForm editing={false} />} />
-        </Routes>
+        <div id="main">
+          <Routes>
+            <Route path="/cars" element={<CarsList />} />
+            <Route path="/cars/:id" element={<CarDetails />} />
+            <Route path="/cars/:id/edit" element={<CarForm editing={true} />} />
+            <Route path="/cars/new" element={<CarForm editing={false} />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

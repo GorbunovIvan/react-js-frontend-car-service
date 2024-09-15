@@ -1,2 +1,33 @@
 body {
+    background-color: beige;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: darkslategray;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: darkslategray;
+    font-weight: bold;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+form label {
+    display: inline-block;
+    width: 100px;
+}
+
+button {
+    background-color: aliceblue; 
+    color: darkblue;
+    padding: 4px 10px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
+button:hover {
+    opacity: 0.7;
 }
