@@ -1,3 +1,6 @@
+<h2>Car-service - React JS web application</h2>
+<p>A simple frontend service written in React JS, uses <strong>spring-backend-for-react-js-frontend-car-service</strong> as a backend</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
