@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getAllCars } from '../api/car-service-api.js';
 
 const CarsList = () => {
 
-  // Dummy cars, they must be fetched later
-  const [cars, setCars] = useState([
-    {
-      id: 1,
-      model: 'BMW',
-      class: 'X',
-      modelCode: '5',
-      year: 2016
-    },
-    {
-      id: 2,
-      model: 'Mercedes',
-      class: 'E',
-      modelCode: '200',
-      year: 2011
-    }
-  ]);
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    // Fetching all cars from remote api
+    getAllCars().then(setCars);
+  }, []);
+
+  if (!cars) {
+    return <p>Loading cars...</p>;
+  }
 
   return (
     <div className='Cars'>

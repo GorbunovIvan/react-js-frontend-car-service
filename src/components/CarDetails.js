@@ -1,21 +1,19 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { getCarById, deleteCarById } from '../api/car-service-api.js';
 
 const CarDetails = () => {
 
   const { id } = useParams(); // Get car id from URL
+  const [car, setCar] = useState(null);
 
-  // Dummy car, it must be fetched by id later
-  const [car, setCar] = useState(
-    {
-      id: 1,
-      model: 'BMW',
-      class: 'X',
-      modelCode: '5',
-      year: 2016
+  useEffect(() => {
+    if (!car) {
+      // Fetching car from remote api by Id
+      getCarById(id).then(setCar);
     }
-  );
+  }, [id]);
 
   if (!car) {
     return <p>Loading car details...</p>;
@@ -33,7 +31,7 @@ const CarDetails = () => {
         <div id='management-block'>
           <p><Link to={`/cars/${car.id}/edit`}>Edit</Link></p>
           <form action='/cars'>
-            <button type='submit'>Delete</button>
+            <button type='submit' onClick={() => {deleteCarById(car.id)}}>Delete</button>
           </form>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
+import { getCarById, createCar, updateCar } from '../api/car-service-api.js';
 
 const CarForm = (props) => {
 
@@ -8,21 +9,15 @@ const CarForm = (props) => {
 
   useEffect(() => {
     if (props.editing) {
-      // Dummy car, it must be fetched by id later
-      setCar(
-        {
-          id: 1,
-          model: 'BMW',
-          class: 'X',
-          modelCode: '5',
-          year: 2016
-        }
-      )
+      if (!car) {
+        // Fetching car from remote api by Id
+        getCarById(id).then(setCar);
+      }
     } else {
       setCar(
         {
           model: '',
-          class: '',
+          carClass: '',
           modelCode: '',
           year: 0
         }
@@ -55,7 +50,8 @@ const CarForm = (props) => {
             <input id='year' type='number' defaultValue={car.year} onChange={e => car.year = e.target.value}/>
           </div>
           <div>
-            <button type='submit'>
+            <button type='submit'
+              onClick={() => props.editing ? updateCar(id, car) : createCar(car)}>
                 {props.editing ? 'Update' : 'Add'}
             </button>
           </div>
